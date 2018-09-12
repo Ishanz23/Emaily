@@ -1,13 +1,22 @@
-import React from 'react'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
 import Header from './Layout/Header'
-import Footer from './Layout/Footer'
-import Main from './Layout/Main'
 
-const App = () => (
-  <div>
-    <Header />
-  </div>
-)
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser()
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+      </div>
+    )
+  }
+}
 
-export default App
+export default connect(
+  null,
+  actions
+)(App)
